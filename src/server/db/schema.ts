@@ -4,6 +4,7 @@
 import { relations } from "drizzle-orm";
 import {
   index,
+  pgEnum,
   pgTable,
   pgTableCreator,
   serial,
@@ -13,12 +14,15 @@ import {
   varchar,
 } from "drizzle-orm/pg-core";
 
+export const userType = pgEnum("UserType", ["anonymous", "guest", "user"]);
+
 export const users = pgTable("users", {
   id: uuid("id").defaultRandom().primaryKey(),
   firstName: text("first_name"),
   lastName: text("last_name"),
   phone: varchar("phone", { length: 256 }),
   ip: varchar("ip").notNull(),
+  type: userType("user_type").default("anonymous"),
   createdAt: timestamp("created_at", {
     mode: "date",
     precision: 3,
@@ -66,6 +70,7 @@ export const userDevices = pgTable("devices", {
     .notNull()
     .references(() => users.id),
   ip: varchar("ip").notNull(),
+  userAgent: text("user_agent").notNull().default(""),
   detectedBrowser: text("detected_browser").notNull().default(""),
   detectedOs: text("detected_os").notNull().default(""),
   detectedDevice: text("detected_device").notNull().default(""),
@@ -87,7 +92,7 @@ export const userDevices = pgTable("devices", {
 
 export const userIps = pgTable("ips", {
   ip: varchar("ip").notNull().primaryKey(),
-  userId: uuid("userId"),
+  userId: uuid("userId").notNull(),
 });
 
 export const usersRelations = relations(users, ({ one }) => {
