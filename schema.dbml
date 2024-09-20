@@ -1,0 +1,37 @@
+table sessions {
+  id text [pk, not null]
+  user_id uuid [not null]
+  expires_at "timestamp with time zone" [not null]
+  created_at "timestamp (3) with time zone" [not null, default: `now()`]
+  updated_at "timestamp (3) with time zone" [not null, default: `now()`]
+}
+
+table devices {
+  id uuid [pk, not null, default: `gen_random_uuid()`]
+  user_id uuid [not null]
+  ip varchar [not null]
+  detected_browser text [not null, default: '']
+  detected_os text [not null, default: '']
+  detected_device text [not null, default: '']
+  created_at "timestamp (3) with time zone" [not null, default: `now()`]
+  updated_at "timestamp (3) with time zone" [not null, default: `now()`]
+}
+
+table ips {
+  ip varchar [pk, not null]
+  userId uuid
+}
+
+table users {
+  id uuid [pk, not null, default: `gen_random_uuid()`]
+  first_name text
+  last_name text
+  phone varchar(256)
+  ip varchar [not null]
+  created_at "timestamp (3) with time zone" [not null, default: `now()`]
+  updated_at "timestamp (3) with time zone" [not null, default: `now()`]
+}
+
+ref: devices.ip > ips.ip
+
+ref: users.ip - ips.ip
