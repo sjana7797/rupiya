@@ -8,6 +8,13 @@
       "when": 1726812524441,
       "tag": "0000_dizzy_owl",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1726817754852,
+      "tag": "0001_melodic_chronomancer",
+      "breakpoints": true
     }
   ]
 }
