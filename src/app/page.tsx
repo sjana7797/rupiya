@@ -23,6 +23,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import RupyaLogo from "~/assets/image/rupya-logo.png";
+import banner from "~/assets/image/drawing-man-woman-shaking-hands-with-stacks-books_979520-107172-removebg-preview.png";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -88,13 +90,8 @@ export default function LandingPage() {
     <div className="flex min-h-screen flex-col bg-[#f5f7fa]">
       <header className="bg-white shadow-md">
         <div className="container mx-auto flex items-center justify-between px-4 py-4">
-          <Link href="#" className="flex items-center">
-            <Image
-              src="/placeholder.svg?height=40&width=180"
-              alt="Lendingkart Logo"
-              width={180}
-              height={40}
-            />
+          <Link href="/" className="flex items-center">
+            <Image src={RupyaLogo} alt="Rupya Logo" className="h-14 w-auto" />
           </Link>
           <nav className="hidden space-x-6 md:flex">
             <Link href="#" className="text-gray-600 hover:text-blue-600">
@@ -149,11 +146,9 @@ export default function LandingPage() {
                 transition={{ duration: 0.5 }}
               >
                 <Image
-                  src="/placeholder.svg?height=400&width=500"
+                  src={banner}
                   alt="Business Loan"
-                  width={500}
-                  height={400}
-                  className="rounded-lg shadow-lg"
+                  className="h-96 w-auto rounded-lg shadow-lg"
                 />
               </motion.div>
             </div>
@@ -164,7 +159,7 @@ export default function LandingPage() {
           <section className="py-16">
             <div className="container mx-auto px-4">
               <h2 className="mb-12 text-center text-3xl font-bold text-[#0a2540]">
-                Why Choose Lendingkart?
+                Why Choose Rupya?
               </h2>
               <div className="grid gap-8 md:grid-cols-3">
                 {[
@@ -360,13 +355,13 @@ export default function LandingPage() {
                     name: "Rahul S.",
                     business: "Small Business Owner",
                     quote:
-                      "Lendingkart made it incredibly easy for me to get the working capital I needed for my business. The process was quick and hassle-free.",
+                      "Rupya made it incredibly easy for me to get the working capital I needed for my business. The process was quick and hassle-free.",
                   },
                   {
                     name: "Priya M.",
                     business: "Entrepreneur",
                     quote:
-                      "I was impressed by how quickly Lendingkart processed my loan application. The funds were in my account within days, helping me seize a time-sensitive business opportunity.",
+                      "I was impressed by how quickly Rupya processed my loan application. The funds were in my account within days, helping me seize a time-sensitive business opportunity.",
                   },
                 ].map((testimonial, index) => (
                   <Card key={index} className="h-full">
@@ -412,7 +407,7 @@ export default function LandingPage() {
                     question:
                       "What is the maximum loan amount I can apply for?",
                     answer:
-                      "You can apply for a business loan of up to ₹2 crore with Lendingkart, depending on your business profile and eligibility.",
+                      "You can apply for a business loan of up to ₹2 crore with Rupya, depending on your business profile and eligibility.",
                   },
                   {
                     question: "What documents do I need to apply for a loan?",
@@ -422,7 +417,7 @@ export default function LandingPage() {
                   {
                     question: "How long does it take to get loan approval?",
                     answer:
-                      "At Lendingkart, we strive for quick approvals. Typically, you can expect a decision within 24-48 hours of submitting a complete application with all required documents.",
+                      "At Rupya, we strive for quick approvals. Typically, you can expect a decision within 24-48 hours of submitting a complete application with all required documents.",
                   },
                   {
                     question: "What are the interest rates for business loans?",
@@ -432,7 +427,7 @@ export default function LandingPage() {
                   {
                     question: "Can I repay my loan early?",
                     answer:
-                      "Yes, you can repay your loan early. Lendingkart offers flexible repayment options, including the ability to make prepayments or foreclose your loan. Some terms and conditions may apply.",
+                      "Yes, you can repay your loan early. Rupya offers flexible repayment options, including the ability to make prepayments or foreclose your loan. Some terms and conditions may apply.",
                   },
                 ].map((faq, index) => (
                   <AccordionItem key={index} value={`item-${index}`}>
@@ -480,14 +475,14 @@ export default function LandingPage() {
             <div>
               <Image
                 src="/placeholder.svg?height=40&width=180"
-                alt="Lendingkart Logo"
+                alt="Rupya Logo"
                 width={180}
                 height={40}
                 className="mb-4"
               />
               <p className="text-sm text-gray-600">
-                Lendingkart is a leading fintech company providing business
-                loans to SMEs across India.
+                Rupya is a leading fintech company providing business loans to
+                SMEs across India.
               </p>
             </div>
             <div>
@@ -564,7 +559,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="mt-8 border-t pt-8 text-center text-sm text-gray-600">
-            © {new Date().getFullYear()} Lendingkart. All rights reserved.
+            © {new Date().getFullYear()} Rupya. All rights reserved.
           </div>
         </div>
       </footer>
