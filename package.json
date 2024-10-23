@@ -11,7 +11,8 @@
     "db:studio": "drizzle-kit studio",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "db:generate-dbml": "bun src/server/db/dbml.ts && npx @softwaretechnik/dbml-renderer -i schema.dbml -o erd.svg"
   },
   "dependencies": {
     "@lucia-auth/adapter-drizzle": "^1.1.0",
@@ -24,8 +25,10 @@
     "@trpc/react-query": "^11.0.0-rc.446",
     "@trpc/server": "^11.0.0-rc.446",
     "@vercel/functions": "^1.4.1",
+    "axios": "^1.7.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "device-detector-js": "^3.0.3",
     "drizzle-orm": "^0.33.0",
     "framer-motion": "^11.5.4",
     "geist": "^1.3.0",
@@ -49,6 +52,7 @@
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^8.1.0",
     "@typescript-eslint/parser": "^8.1.0",
+    "drizzle-dbml-generator": "^0.9.0",
     "drizzle-kit": "^0.24.0",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.4",
