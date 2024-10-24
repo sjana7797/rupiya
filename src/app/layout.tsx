@@ -5,6 +5,10 @@ import { type Metadata } from "next";
 
 import { TRPCReactProvider } from "~/trpc/react";
 import InitialSetup from "~/components/global/initial-setup";
+import Header from "~/components/header";
+
+import NextTopLoader from "nextjs-toploader";
+import Footer from "~/components/footer";
 
 export const metadata: Metadata = {
   title: "Rupya.ai | Your Smart Lending Platform",
@@ -20,7 +24,14 @@ export default function RootLayout({
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
         <TRPCReactProvider>
-          <InitialSetup>{children}</InitialSetup>
+          <InitialSetup>
+            <NextTopLoader color="#2299DD" height={4} />
+            <div className="flex min-h-screen flex-col bg-[#f5f7fa]">
+              <Header />
+              {children}
+              <Footer />
+            </div>
+          </InitialSetup>
         </TRPCReactProvider>
       </body>
     </html>
